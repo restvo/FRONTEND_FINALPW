@@ -50,7 +50,7 @@ const ArmadoConocedorPage = () => {
         httpObtenerCategorias();
         httpObtenerProductos();
         httpOtenerCarrito();
-    }, [])
+    }, []) 
     
     const onCategoriaSelected = (categoriaId) => {
         console.log("Categoria seleccionada: " + categoriaId);
