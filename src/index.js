@@ -21,6 +21,7 @@ root.render(
         <Route path='/evaluaciones/:cursoId' element={ <ListadoEvaluacionesPage /> }/>
         <Route path= '/FormularioInfo' element= { <FormularioInfoPage /> }/>
         <Route path= '/Conocedores' element= { <ArmadoConocedorPage /> }/>
+        <Route path= '/login' element={ <LoginPage /> }/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

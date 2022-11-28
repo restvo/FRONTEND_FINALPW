@@ -11,6 +11,7 @@ import Suma from "./components/Suma";
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import ListaProductos from "./components/ListaProductos";
+import Prueba from "./components/Prueba";
 
 const ArmadoConocedorPage = () => {
     const [ListadoCategorias, setListadoCategorias] = useState([]);
@@ -56,13 +57,11 @@ const ArmadoConocedorPage = () => {
         console.log("Categoria seleccionada: " + categoriaId);
         httpObtenerProductos(categoriaId);
     }
-    const onProdFavSelected = (productonombre) => {
-        console.log("Producto favorito seleccionado: " + productonombre);
-        httpOtenerCarrito(productonombre);
-    }
+
     /*const onProductoSelected = (productoId) => {
         navigate(`/FormularioInfo/${productoId}`)
     }*/
+
     return <Layout 
     makeHeader={ () => <Header titulo="ARMADO CONOCEDOR"/> }
     makeBody={ 
@@ -82,7 +81,8 @@ const ArmadoConocedorPage = () => {
             </Col>
             <Col md={2}>
                 <div>CARRITO: </div>
-            <ListaCarrito classNameName="container align-items-center justify-content-center"/>                                                                  
+            <Prueba classNameName="container align-items-center justify-content-center"
+                                    carrito = { ListadoProductos}/>                                                                  
             </Col>
             <Col md={1}>
                 <div>TOTAL:</div>
