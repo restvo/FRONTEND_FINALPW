@@ -76,7 +76,7 @@ const ArmadoConocedorPage = () => {
             <div>COMPONENTES: </div>
             <ListaProductos className="container align-items-center justify-content-center"
                                       productos={ ListadoProductos }
-                                      onProductoSelected={ onProdFavSelected }/>      
+                                      />      
     
             </Col>
             <Col md={2}>

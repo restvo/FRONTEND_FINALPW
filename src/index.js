@@ -10,6 +10,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import FormularioInfo from './screens/FormularioInfo/components/FormularioInfo';
 import FormularioInfoPage from './screens/FormularioInfo/FormularioInfoPage';
 import ArmadoConocedorPage from './screens/ArmadoConocedor/ArmadoConocedorPage';
+import PrincipalJuegos from './screens/Juegos/PrincipalJuegos';
+import Epic from './screens/Juegos/Epic';
+import Steam from './screens/Juegos/Steam';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -22,6 +25,9 @@ root.render(
         <Route path= '/FormularioInfo' element= { <FormularioInfoPage /> }/>
         <Route path= '/Conocedores' element= { <ArmadoConocedorPage /> }/>
         <Route path= '/login' element={ <LoginPage /> }/>
+        <Route path= '/PrincipalJuegos' element={ <PrincipalJuegos /> }/>
+        <Route path = '/Epic' element = { <Epic/> }/>
+        <Route path = '/Steam' element = { <Steam/> }/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
