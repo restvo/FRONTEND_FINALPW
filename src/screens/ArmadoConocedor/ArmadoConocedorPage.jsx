@@ -20,6 +20,9 @@ const ArmadoConocedorPage = () => {
 
     const navigate = useNavigate()
 
+    const token = localStorage.getItem("TOKEN")
+    
+
     const httpObtenerCategorias = async () => {
         const response = await fetch("http://localhost:4447/categoria_producto");
         const data = await response.json();
@@ -63,7 +66,9 @@ const ArmadoConocedorPage = () => {
     }*/
 
     return <Layout 
-    makeHeader={ () => <Header titulo="ARMADO CONOCEDOR"/> }
+    makeHeader={ () => <Header titulo={`ARMADO CONOCEDOR -
+     Usuario: ${token} 
+    `}/> }
     makeBody={ 
         () => <div >
             <Col md={3} className ="col-6">

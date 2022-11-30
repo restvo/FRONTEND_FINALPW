@@ -8,6 +8,7 @@ import { Row, Col, Button, Form, ButtonGroup } from 'react-bootstrap'
 import InfoDefault from "./components/InfoDefault";
 import { useState, useEffect} from "react";
 import { MDBCard, MDBCardBody} from 'mdb-react-ui-kit';
+import { useNavigate } from 'react-router' 
 
 const FormularioInfoPage = () => {
     const [nombre, setNombre] = useState("");
@@ -20,22 +21,44 @@ const FormularioInfoPage = () => {
     const [cod_post, setPostal] = useState("");
     const [telefono, setTelefono] = useState("");
     const [ListadoInfo, setListadoInfo] = useState([]);
-
-
     
-    const httpObtenerInfo = async () => {
-        const ruta = "http://localhost:4447/usuariosform"
+    const token = localStorage.getItem("TOKEN")
+    
+
+    const navigate = useNavigate()
+
+    function Actualizar(){
+    document.location.reload(true);
+    }
+    function borrarToken() {
+      localStorage.clear()
+      Actualizar()     
+      
+    }
+
+    useEffect(() => {
+      const token2 = localStorage.getItem("TOKEN")
+      if(token2 == null ){
+          navigate('/Login')
+      }
+     }
+     )
+    
+    const httpObtenerInfo = async (usuarioId = null) => {
+        const ruta = usuarioId == null ?
+        "http://localhost:4447/usuariosform": 
+        `http://localhost:4447/usuariosform?usuario=${usuarioId}`
         const response = await fetch(ruta);
         const data = await response.json();
         console.log(data);
         setListadoInfo(data);
     }
-    const httpActualizarUsuario = async (nombre, apellido, contrasena, correo, direccion, departamento, ciudad, cod_post, telefono) => {
+    const httpActualizarUsuario = async (nombre, apellido, correo, contrasena, direccion, departamento, ciudad, cod_post, telefono) => {
         const data = {
             nombre : nombre,
             apellido : apellido,
-            contrasena : contrasena,
             correo : correo,
+            contrasena : contrasena,
             direccion : direccion,
             departamento : departamento,
             ciudad : ciudad,
@@ -58,14 +81,21 @@ const FormularioInfoPage = () => {
     }
     useEffect(() => {
         httpObtenerInfo();
+
     }, []) 
     
     return <Layout 
-    makeHeader={ () => <Header titulo="IMPORTAR"/> }
+    makeHeader={ () => <Header titulo={`Datos Personales -
+    Usuario: ${token} 
+   `}/> }
     makeBody={ 
         () => <Row >
             <Col md={3} className ="col-6">
-                <BotonesForm className="container align-items-center justify-content-center"/>
+            <Button size="lg" variant="light">Profile Info</Button>
+            <p> </p>
+            <Button size="lg" variant="light">Order History</Button>
+             <p> </p>
+            <Button size="lg" variant="light" onClick= { borrarToken }  >Log Out</Button>
             </Col>
             <Col md={6} className ="col-6">
             <InfoDefault informacion = { ListadoInfo }/>

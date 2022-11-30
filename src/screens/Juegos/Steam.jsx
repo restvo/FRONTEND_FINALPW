@@ -31,6 +31,7 @@ const Steam = () => {
     return <Container vertical= 'true' className="d-flex align-items-center justify-content-center text-center align-center">
         <Card  >
          <Card.Body>{ steam.nombre } - { steam.descripcion }
+            
             </Card.Body>
         </Card>
         </Container>

@@ -13,6 +13,7 @@ import ArmadoConocedorPage from './screens/ArmadoConocedor/ArmadoConocedorPage';
 import PrincipalJuegos from './screens/Juegos/PrincipalJuegos';
 import Epic from './screens/Juegos/Epic';
 import Steam from './screens/Juegos/Steam';
+import PcArmadaComp from './screens/RecomendacionPcArmada/PcArmadaComp';
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -20,6 +21,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
+        <Route path='/' element = {<LoginPage/>}/>
         <Route path='/cursos' element={ <ListadoCursosPage /> }/>
         <Route path='/evaluaciones/:cursoId' element={ <ListadoEvaluacionesPage /> }/>
         <Route path= '/FormularioInfo' element= { <FormularioInfoPage /> }/>
@@ -28,6 +30,7 @@ root.render(
         <Route path= '/PrincipalJuegos' element={ <PrincipalJuegos /> }/>
         <Route path = '/Epic' element = { <Epic/> }/>
         <Route path = '/Steam' element = { <Steam/> }/>
+        <Route path= '/PcArmadaComp' element={ <PcArmadaComp /> }/>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
