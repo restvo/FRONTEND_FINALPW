@@ -1,8 +1,14 @@
 import React from "react";
 import { Nav, Form, Button, Image, Modal, Navbar, Container} from 'react-bootstrap';
+import { useNavigate } from "react-router";
 
-const Header = (props) => 
-{
+const Header = (props) => {
+    const navigate = useNavigate()
+
+    function navegar(){
+      navigate("/FormularioInfo")}
+      function navegar2(){
+        navigate("/rankingpc")}
     return <>
     <div >
     <Navbar bg="light" expand="lg" style={{height: '50px'}}>
@@ -18,15 +24,15 @@ const Header = (props) =>
             navbarScroll
         >
             <Nav.Link href="#action1">Home</Nav.Link>
-            <Nav.Link href="#action2">About</Nav.Link>
+            <Nav.Link href="#action2" onClick = { navegar }>Cuenta</Nav.Link>
             <Nav.Link href="#">
               Support
             </Nav.Link>
             <Nav.Link href="#">
               Review
             </Nav.Link>
-            <Nav.Link href="#">
-              Ranking
+            <Nav.Link href="#" onClick = { navegar2 }>
+              Ranking 
             </Nav.Link>
           </Nav>
           <Form className="d-flex">

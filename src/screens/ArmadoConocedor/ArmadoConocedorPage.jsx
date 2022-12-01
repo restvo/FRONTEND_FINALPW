@@ -11,7 +11,7 @@ import Suma from "./components/Suma";
 import { useNavigate } from "react-router";
 import { useEffect, useState } from "react";
 import ListaProductos from "./components/ListaProductos";
-import Prueba from "./components/Prueba";
+
 
 const ArmadoConocedorPage = () => {
     const [ListadoCategorias, setListadoCategorias] = useState([]);
@@ -69,7 +69,7 @@ const ArmadoConocedorPage = () => {
     makeHeader={ () => <Header titulo={`ARMADO CONOCEDOR -
      Usuario: ${token} 
     `}/> }
-    makeBody={ 
+    makeBody = { 
         () => <div >
             <Col md={3} className ="col-6">
                 <Categorias className="container align-items-center justify-content-center" 
@@ -82,12 +82,11 @@ const ArmadoConocedorPage = () => {
             <ListaProductos className="container align-items-center justify-content-center"
                                       productos={ ListadoProductos }
                                       />      
-    
             </Col>
             <Col md={2}>
                 <div>CARRITO: </div>
-            <Prueba classNameName="container align-items-center justify-content-center"
-                                    carrito = { ListadoProductos}/>                                                                  
+            <ListaCarrito classNameName="container align-items-center justify-content-center"
+                                    carrito = { ListadoProductos} />                                                                  
             </Col>
             <Col md={1}>
                 <div>TOTAL:</div>

@@ -42,7 +42,7 @@ const PcArmadaComp = () => {
 
 
     return <Layout 
-    makeHeader={ () => <Header titulo={"XD" }/> }
+    makeHeader={ () => <Header titulo={"Armado Principiante" }/> }
     makeBody={ 
         () => <div >
             <Col md={3} className ="col-6">

@@ -8,14 +8,19 @@ import { useEffect } from 'react'
 const LoginPage = () => {
     const [correo, setCorreo] = useState('')
     const [contrasena, setContrasena] = useState('')
+
     
     
     const navigate = useNavigate()
 
+    function navegar(){
+        navigate('/Registro')
+    }
+
     useEffect(() => {
      const token = localStorage.getItem("TOKEN")
      if(token !=  null ){
-        navigate('/Conocedores')
+        navigate('/Principal')
      }
     }
     )
@@ -34,7 +39,7 @@ const LoginPage = () => {
      if(data.error === ""){
         //login fue correcto
         localStorage.setItem( "TOKEN" , data.token)
-        navigate('/Conocedores')
+        navigate('/Principal')
 
      }else{
         //login fue incorrecto
@@ -69,6 +74,9 @@ const LoginPage = () => {
                             </Form.Group>
                             <Button className='mt-3' variant='warning'
                             onClick = { () =>{httpLogin(correo, contrasena)}}>Login</Button>
+                            <p></p>
+                            <Button className='mt-3' variant='warning'
+                            onClick = { navegar }>Crear cuenta</Button>
                         </Form>
                     </Card.Body>
                 </Card>

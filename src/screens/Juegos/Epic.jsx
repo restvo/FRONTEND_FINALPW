@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import Layout from "../../components/Layout";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import gow from "./images/gow.jpg";
+import elden from "./images/elden.jpg";
 
 
 
@@ -24,17 +26,38 @@ const Epic = () => {
  return <Layout
     makeHeader={ () => <Header titulo="¡JUEGOS GRATIS CON TU COMPRA!"/> }
     makeBody={ 
-        () => <div> 
-
-    { ListadoJuegosEpic.map((epic) => {
-    return <Container vertical= 'true' className="d-flex align-items-center justify-content-center text-center align-center">
-        <Card  >
-         <Card.Body>{ epic.nombre } - { epic.descripcion }
+        () => <Container> 
+        <Card>
+            <Card.Body >
+            <img src= { elden } className="rounded-3"
+            style={{ width: "190px" }}
+            alt="Epic"
+            />
             </Card.Body>
+            { ListadoJuegosEpic.map((epic) => {
+return <Card>
+     <Card.Body> 
+        { epic.nombre } - { epic.descripcion }
+
+        </Card.Body>
+    </Card>
+}) }
+        <Card>
+            <Card.Body >
+            <img src= { gow } className="rounded-3"
+            style={{ width: "180px" }}
+            alt="Epic"
+            />
+            </Card.Body>
+            
         </Card>
-        </Container>
-    }) }
-        </div>}
+        
+        
+        
+        </Card>
+        
+
+    </Container>}
         makeFooter = { () => <Footer />}/>
     }
 

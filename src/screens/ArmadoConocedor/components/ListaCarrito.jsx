@@ -1,31 +1,21 @@
 import React from "react";
-import { ListGroup, Row, Col, Card, Form } from 'react-bootstrap'
+import { ListGroup, Row, Col, Card, Form, Button } from 'react-bootstrap'
 
 
 const ListaCarrito = (props) => {
-    return 
-}
-
-export default ListaCarrito
-/*
-<div className="mt-4 mb-4">
+    return <div className="mt-4 mb-4">
     {
-        ((producto) => {
+        props.carrito.map((producto) => {
             return <Row className="mb-2">
                 <Col>                       
-                    <Card >
-                        <Card.Body>{ producto.nombre }</Card.Body>
+                    <Card>
+                        <Card.Body>             
+                            Producto Seleccionado : { producto.nombre } - Precio: { producto.precio} <p></p><Button>Añadir</Button></Card.Body>
                     </Card>
                 </Col>
             </Row>
         })
     }
-</div>
+</div>}
 
-<ListGroup as="ul">
-    <ListGroup.Item as="li" >CORE I5 </ListGroup.Item>
-    <ListGroup.Item as="li" >RTX 3060</ListGroup.Item>
-    <ListGroup.Item as="li" >16 GB RAM</ListGroup.Item>
-    <ListGroup.Item as="li" >WINDOWS 11</ListGroup.Item>
-</ListGroup>
-*/
+export default ListaCarrito

@@ -4,6 +4,9 @@ import { useState, useEffect } from "react";
 import Layout from "../../components/Layout";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
+import stray from "./images/stray.jpg";
+import mw2 from "./images/mw2.jpg";
+
 
 const Steam = () => {
     const  [ListadoJuegosSteam, setListadoJuegosSteam ] = useState([]);
@@ -25,18 +28,38 @@ const Steam = () => {
     return <Layout
     makeHeader={ () => <Header titulo="¡JUEGOS GRATIS CON TU COMPRA!"/> }
     makeBody={ 
-        () => <div> 
+        () => <Container> 
+            <Card>
+                <Card.Body >
+                <img src= { mw2 } className="rounded-3"
+                style={{ width: "120px" }}
+                alt="Epic"
+                />
+                </Card.Body>
+                { ListadoJuegosSteam.map((steam) => {
+    return <Card>
+         <Card.Body> 
+            { steam.nombre } - { steam.descripcion }
 
-    { ListadoJuegosSteam.map((steam) => {
-    return <Container vertical= 'true' className="d-flex align-items-center justify-content-center text-center align-center">
-        <Card  >
-         <Card.Body>{ steam.nombre } - { steam.descripcion }
-            
             </Card.Body>
         </Card>
-        </Container>
     }) }
-        </div>}
+            <Card>
+                <Card.Body >
+                <img src= { stray } className="rounded-3"
+                style={{ width: "120px" }}
+                alt="Epic"
+                />
+                </Card.Body>
+                
+            </Card>
+            
+            
+            
+            </Card>
+            
+
+        </Container>}
         makeFooter = { () => <Footer />}/>
     }
 export default Steam;
