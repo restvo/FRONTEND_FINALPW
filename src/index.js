@@ -18,6 +18,7 @@ import RankTest from './screens/Alonso/RankTest';
 import ResenaPagina from './screens/Resena/ResenaPagina';
 import RankingPC from './screens/RankingPCs/RankingPC';
 
+
  
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render( 
